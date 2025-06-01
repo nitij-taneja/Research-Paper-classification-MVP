@@ -1005,5 +1005,5 @@ if __name__ == "__main__":
     # Ensure NLTK data is available before starting the app
     if not sia:
          logger.warning("NLTK setup incomplete. Sentiment features might be zero.")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=10000, debug=True)
 
