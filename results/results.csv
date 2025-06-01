@@ -1,0 +1,136 @@
+Paper_ID,Conference,Rationale,Publishable
+P001,KDD,The paper is recommended for KDD with 0.35 similarity score. It shares methodological approaches with papers like 'R010'. The content aligns with knowledge discovery and data mining approaches.,1
+P003,na,na,0
+P004,EMNLP,The paper is recommended for EMNLP with 0.41 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P005,unknown,Not applicable,1
+P006,na,na,0
+P002,na,na,0
+P007,na,na,0
+P008,EMNLP,The paper is recommended for EMNLP with 0.61 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P010,na,na,0
+P009,na,na,0
+P014,na,na,0
+P011,na,na,0
+P013,unknown,Not applicable,1
+P015,CVPR,The paper is recommended for CVPR with 0.35 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P012,unknown,Not applicable,1
+P016,na,na,0
+P018,NEURIPS,The paper is recommended for NEURIPS with 0.36 similarity score. It shares methodological approaches with papers like 'R013'. The content aligns with neural information processing systems and machine learning.,1
+P020,na,na,0
+P017,KDD,The paper is recommended for KDD with 0.51 similarity score. It shares methodological approaches with papers like 'R011'. The content aligns with knowledge discovery and data mining approaches.,1
+P019,na,na,0
+P021,unknown,Not applicable,1
+P022,na,na,0
+P023,na,na,0
+P024,unknown,Not applicable,1
+P026,na,na,0
+P025,CVPR,The paper is recommended for CVPR with 0.55 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P027,na,na,0
+P029,unknown,Not applicable,1
+P030,na,na,0
+P028,unknown,Not applicable,1
+P031,unknown,Not applicable,1
+P033,na,na,0
+P034,unknown,Not applicable,1
+P032,na,na,0
+P035,na,na,0
+P037,unknown,Not applicable,1
+P040,NEURIPS,The paper is recommended for NEURIPS with 0.35 similarity score. It shares methodological approaches with papers like 'R012'. The content aligns with neural information processing systems and machine learning.,1
+P036,na,na,0
+P038,na,na,0
+P039,na,na,0
+P041,na,na,0
+P042,unknown,Not applicable,1
+P043,na,na,0
+P044,na,na,0
+P046,NEURIPS,The paper is recommended for NEURIPS with 0.44 similarity score. It shares methodological approaches with papers like 'R013'. The content aligns with neural information processing systems and machine learning.,1
+P045,EMNLP,The paper is recommended for EMNLP with 0.48 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P050,unknown,Not applicable,1
+P049,EMNLP,The paper is recommended for EMNLP with 0.44 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P052,na,na,0
+P051,unknown,Not applicable,1
+P047,na,na,0
+P048,na,na,0
+P055,na,na,0
+P057,na,na,0
+P054,CVPR,The paper is recommended for CVPR with 0.91 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P053,na,na,0
+P056,na,na,0
+P058,na,na,0
+P060,CVPR,The paper is recommended for CVPR with 0.40 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P062,na,na,0
+P059,na,na,0
+P063,TMLR,The paper is recommended for TMLR with 0.53 similarity score. It shares methodological approaches with papers like 'R015'. The content aligns with theoretical machine learning research.,1
+P061,EMNLP,The paper is recommended for EMNLP with 0.52 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P065,na,na,0
+P064,unknown,Not applicable,1
+P067,na,na,0
+P066,unknown,Not applicable,1
+P068,CVPR,The paper is recommended for CVPR with 0.42 similarity score. It shares methodological approaches with papers like 'R006'. The content aligns with computer vision and pattern recognition techniques.,1
+P072,NEURIPS,The paper is recommended for NEURIPS with 0.50 similarity score. It shares methodological approaches with papers like 'R013'. The content aligns with neural information processing systems and machine learning.,1
+P071,unknown,Not applicable,1
+P069,na,na,0
+P070,na,na,0
+P075,na,na,0
+P074,unknown,Not applicable,1
+P078,na,na,0
+P073,na,na,0
+P077,na,na,0
+P079,unknown,Not applicable,1
+P076,na,na,0
+P082,na,na,0
+P080,na,na,0
+P083,na,na,0
+P081,na,na,0
+P084,unknown,Not applicable,1
+P087,CVPR,The paper is recommended for CVPR with 0.49 similarity score. It shares methodological approaches with papers like 'R006'. The content aligns with computer vision and pattern recognition techniques.,1
+P085,na,na,0
+P086,na,na,0
+P090,unknown,Not applicable,1
+P088,na,na,0
+P091,na,na,0
+P089,na,na,0
+P093,TMLR,The paper is recommended for TMLR with 0.41 similarity score. It shares methodological approaches with papers like 'R015'. The content aligns with theoretical machine learning research.,1
+P092,na,na,0
+P095,unknown,Not applicable,1
+P098,na,na,0
+P094,na,na,0
+P096,na,na,0
+P099,unknown,Not applicable,1
+P097,na,na,0
+P101,na,na,0
+P100,na,na,0
+P103,EMNLP,The paper is recommended for EMNLP with 0.40 similarity score. It shares methodological approaches with papers like 'R008'. The content aligns with empirical methods in natural language processing.,1
+P102,CVPR,The paper is recommended for CVPR with 0.50 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P106,na,na,0
+P104,unknown,Not applicable,1
+P108,na,na,0
+P109,unknown,Not applicable,1
+P105,na,na,0
+P110,unknown,Not applicable,1
+P107,na,na,0
+P114,na,na,0
+P113,NEURIPS,The paper is recommended for NEURIPS with 0.42 similarity score. It shares methodological approaches with papers like 'R012'. The content aligns with neural information processing systems and machine learning.,1
+P112,unknown,Not applicable,1
+P115,unknown,Not applicable,1
+P116,na,na,0
+P118,unknown,Not applicable,1
+P111,na,na,0
+P117,unknown,Not applicable,1
+P120,na,na,0
+P121,NEURIPS,The paper is recommended for NEURIPS with 0.36 similarity score. It shares methodological approaches with papers like 'R013'. The content aligns with neural information processing systems and machine learning.,1
+P122,CVPR,The paper is recommended for CVPR with 0.29 similarity score. It shares methodological approaches with papers like 'R007'. The content aligns with computer vision and pattern recognition techniques.,1
+P119,na,na,0
+P124,na,na,0
+P123,unknown,Not applicable,1
+P125,unknown,Not applicable,1
+P127,na,na,0
+P126,NEURIPS,The paper is recommended for NEURIPS with 0.38 similarity score. It shares methodological approaches with papers like 'R013'. The content aligns with neural information processing systems and machine learning.,1
+P130,na,na,0
+P131,unknown,Not applicable,1
+P128,unknown,Not applicable,1
+P132,na,na,0
+P129,na,na,0
+P133,unknown,Not applicable,1
+P134,na,na,0
+P135,TMLR,The paper is recommended for TMLR with 0.53 similarity score. It shares methodological approaches with papers like 'R015'. The content aligns with theoretical machine learning research.,1
