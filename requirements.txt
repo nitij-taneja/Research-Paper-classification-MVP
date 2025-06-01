@@ -1,5 +1,5 @@
 # Core dependencies with compatible versions
-numpy==1.21.6, <2.0
+numpy>=1.24.0,<2.0
 pandas==1.4.4
 scikit-learn==1.1.3
 
