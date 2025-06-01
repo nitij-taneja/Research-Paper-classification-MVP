@@ -1,0 +1,1 @@
+{"status": "completed", "progress": 100, "message": "Processing completed successfully", "result": {"paper_id": "R010_2", "publishable": true, "confidence": 0.85, "conference": "KDD", "rationale": "Based on content similarity with published papers in our database, this paper is most suitable for KDD."}}

@@ -43,8 +43,7 @@ venvv/
 *.rar
 *.7z
 
-# Results and generated files
-results/
+
 
 # Ignore reports and pipeline flow
 PIPELINE_FLOW.md
