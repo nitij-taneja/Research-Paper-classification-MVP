@@ -21,29 +21,18 @@ venvv/
 
 # Data and results
 *.log
-*.csv
 *.tsv
 *.xlsx
 *.h5
 *.db
 *.sqlite3
-*.pkl
-*.joblib
-*.sav
 *.npy
 *.npz
 *.parquet
 *.feather
-*.pdf
-*.docx
-*.pptx
-*.zip
-*.tar.gz
-*.tar
-*.rar
-*.7z
 
-
+# Do NOT ignore .csv, .pkl, .joblib, .sav, .pdf, .docx, .pptx, .zip, .tar.gz, .tar, .rar, .7z, or any files in results/, models/, or data/
+# (Allow large files to be tracked if needed)
 
 # Ignore reports and pipeline flow
 PIPELINE_FLOW.md
