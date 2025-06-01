@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Research Papers Classification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-book-open me-2"></i>Research Papers Classification
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/documentation">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card shadow mb-4 sticky-top" style="top: 20px; z-index: 1;">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-list-ul me-2"></i>Contents</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <a href="#overview" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-info-circle me-2 text-primary"></i>Overview
+                            </a>
+                            <a href="#getting-started" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-play-circle me-2 text-primary"></i>Getting Started
+                            </a>
+                            <a href="#features" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-star me-2 text-primary"></i>Features
+                            </a>
+                            <a href="#technical-details" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-cogs me-2 text-primary"></i>Technical Details
+                            </a>
+                            <a href="#api-reference" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-code me-2 text-primary"></i>API Reference
+                            </a>
+                            <a href="#faq" class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="fas fa-question-circle me-2 text-primary"></i>FAQ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card shadow mb-4">
+                    <div class="card-body text-center">
+                        <div class="developer-info p-3">
+                            <img src="https://ui-avatars.com/api/?name=Nitij+Taneja&background=4361ee&color=fff&size=128" class="rounded-circle mb-3" alt="Developer" width="80">
+                            <h5>Nitij Taneja</h5>
+                            <p class="text-muted small mb-2">Developer</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                                <i class="fas fa-envelope me-1"></i>Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <section id="overview" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-info-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h1 class="display-5 mb-0">Documentation</h1>
+                                </div>
+                            </div>
+                            <div class="alert alert-primary bg-light border-start border-primary border-4">
+                                <p class="lead mb-0">
+                                    Welcome to the Research Papers Classification documentation. This guide will help you understand how to use the system, its features, and technical details.
+                                </p>
+                            </div>
+                            <p>
+                                Research Papers Classification is an advanced tool that uses machine learning and natural language processing to evaluate academic papers. The system analyzes research papers to determine their publishability and recommends suitable journals or conferences for submission.
+                            </p>
+                        </section>
+                        
+                        <section id="getting-started" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-play-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h3 mb-0">Getting Started</h2>
+                                </div>
+                            </div>
+                            <div class="card mb-4 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="h5 d-flex align-items-center">
+                                        <span class="badge bg-primary rounded-circle me-2">1</span>
+                                        Upload Your Paper
+                                    </h3>
+                                    <p>
+                                        On the home page, you can upload your research paper in PDF format. The system accepts files up to 16MB in size.
+                                    </p>
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        For best results, ensure your PDF is text-based (not scanned) and follows a standard research paper structure.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-4 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="h5 d-flex align-items-center">
+                                        <span class="badge bg-primary rounded-circle me-2">2</span>
+                                        Processing
+                                    </h3>
+                                    <p>
+                                        After uploading, the system will process your paper. This involves:
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Extracting text from the PDF</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Identifying paper sections (abstract, introduction, etc.)</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Preprocessing the text</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Generating metadata and features</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Classifying publishability</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Recommending journals (if applicable)</li>
+                                    </ul>
+                                    <p>
+                                        Processing time varies depending on the paper's length and complexity, typically taking 1-3 minutes.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card mb-4 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="h5 d-flex align-items-center">
+                                        <span class="badge bg-primary rounded-circle me-2">3</span>
+                                        Results
+                                    </h3>
+                                    <p>
+                                        Once processing is complete, you'll see the results page with:
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-chart-pie text-primary me-2"></i>Publishability assessment with confidence score</li>
+                                                <li><i class="fas fa-journal-whills text-primary me-2"></i>Journal/conference recommendations</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-chart-bar text-primary me-2"></i>Visualizations of the analysis</li>
+                                                <li><i class="fas fa-lightbulb text-primary me-2"></i>Improvement suggestions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="features" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-star fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h3 mb-0">Features</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5 d-flex align-items-center">
+                                                <i class="fas fa-file-pdf text-danger me-2"></i>
+                                                PDF Processing
+                                            </h3>
+                                            <p>
+                                                The system uses multiple extraction methods to handle various PDF formats:
+                                            </p>
+                                            <ul class="feature-list small">
+                                                <li><i class="fas fa-check text-success me-2"></i>PyPDF2 for standard text extraction</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>PDFPlumber for more complex layouts</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>PyMuPDF for enhanced extraction</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>OCR capabilities for scanned documents</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5 d-flex align-items-center">
+                                                <i class="fas fa-align-left text-primary me-2"></i>
+                                                Text Analysis
+                                            </h3>
+                                            <p>
+                                                The system performs comprehensive text analysis:
+                                            </p>
+                                            <ul class="feature-list small">
+                                                <li><i class="fas fa-check text-success me-2"></i>Section identification and separation</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Text cleaning and preprocessing</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Sentiment analysis</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Readability assessment</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Topic modeling</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Keyword density analysis</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5 d-flex align-items-center">
+                                                <i class="fas fa-brain text-warning me-2"></i>
+                                                Classification
+                                            </h3>
+                                            <p>
+                                                The system uses advanced machine learning models:
+                                            </p>
+                                            <ul class="feature-list small">
+                                                <li><i class="fas fa-check text-success me-2"></i>Random Forest classifier</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Gradient Boosting classifier</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Support Vector Machines</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Model ensemble techniques</li>
+                                            </ul>
+                                            <p class="small text-muted mt-2">
+                                                These models are trained on a dataset of published and unpublished research papers.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5 d-flex align-items-center">
+                                                <i class="fas fa-journal-whills text-success me-2"></i>
+                                                Journal Recommendation
+                                            </h3>
+                                            <p>
+                                                For publishable papers, the system recommends suitable journals or conferences:
+                                            </p>
+                                            <ul class="feature-list small">
+                                                <li><i class="fas fa-check text-success me-2"></i>Semantic similarity matching</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Conference-specific feature analysis</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Detailed rationales for recommendations</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="technical-details" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-cogs fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h3 mb-0">Technical Details</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5">System Architecture</h3>
+                                            <p>
+                                                The system follows a modular architecture:
+                                            </p>
+                                            <ul class="feature-list">
+                                                <li><i class="fab fa-html5 text-danger me-2"></i><strong>Frontend:</strong> HTML, CSS, JavaScript with Bootstrap</li>
+                                                <li><i class="fab fa-python text-primary me-2"></i><strong>Backend:</strong> Flask-based Python application</li>
+                                                <li><i class="fas fa-project-diagram text-success me-2"></i><strong>Processing Pipeline:</strong> Modular components</li>
+                                                <li><i class="fas fa-robot text-warning me-2"></i><strong>Machine Learning:</strong> Scikit-learn based models</li>
+                                                <li><i class="fas fa-database text-info me-2"></i><strong>Data Storage:</strong> File-based storage</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="h5">Performance Considerations</h3>
+                                            <p>
+                                                The system is optimized for performance:
+                                            </p>
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-tasks text-primary me-2"></i>Parallel processing for PDF extraction</li>
+                                                <li><i class="fas fa-filter text-success me-2"></i>Efficient text preprocessing with chunking</li>
+                                                <li><i class="fas fa-microchip text-danger me-2"></i>GPU acceleration for embeddings (when available)</li>
+                                                <li><i class="fas fa-spinner text-warning me-2"></i>Asynchronous processing with progress tracking</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="api-reference" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-code fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h3 mb-0">API Reference</h2>
+                                </div>
+                            </div>
+                            <p>
+                                The system provides a RESTful API for integration:
+                            </p>
+                            <div class="mb-4">
+                                <h3 class="h5">Endpoints</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Endpoint</th>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>/upload</code></td>
+                                                <td><span class="badge bg-success">POST</span></td>
+                                                <td>Upload a PDF file for processing</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>/status/{submission_id}</code></td>
+                                                <td><span class="badge bg-primary">GET</span></td>
+                                                <td>Check processing status</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>/result/{submission_id}</code></td>
+                                                <td><span class="badge bg-primary">GET</span></td>
+                                                <td>Get processing results</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>/visualizations/{submission_id}</code></td>
+                                                <td><span class="badge bg-primary">GET</span></td>
+                                                <td>Get result visualizations</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h3 class="h5">Example Usage</h3>
+                                <div class="card bg-dark text-light">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <span>JavaScript Example</span>
+                                        <span class="badge bg-secondary">API Integration</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <pre class="text-light mb-0"><code>// Upload a file
+fetch('/upload', {
+    method: 'POST',
+    body: formData  // FormData with 'file' field
+})
+.then(response => response.json())
+.then(data => {
+    const submissionId = data.submission_id;
+    
+    // Check status
+    fetch(`/status/${submissionId}`)
+        .then(response => response.json())
+        .then(statusData => {
+            // Process status
+        });
+    
+    // Get results when complete
+    fetch(`/result/${submissionId}`)
+        .then(response => response.json())
+        .then(resultData => {
+            // Process results
+        });
+});</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="faq" class="mb-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="section-icon me-3">
+                                    <i class="fas fa-question-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h3 mb-0">Frequently Asked Questions</h2>
+                                </div>
+                            </div>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="faqOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            <i class="fas fa-file-alt text-primary me-2"></i>
+                                            What file formats are supported?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Currently, the system only supports PDF files. These can be text-based PDFs or scanned documents (though text-based PDFs yield better results).
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="faqTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            <i class="fas fa-chart-line text-primary me-2"></i>
+                                            How accurate is the classification?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            The classification models achieve approximately 85-90% accuracy on our test dataset. However, accuracy may vary depending on the research field, paper structure, and quality of the PDF.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="faqThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                            What research fields are supported?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            The system is primarily trained on computer science, machine learning, and data science papers. It can handle papers from other fields, but the accuracy may be lower for highly specialized domains.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="faqFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                            <i class="fas fa-shield-alt text-primary me-2"></i>
+                                            Is my data secure and private?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Yes, your papers are processed securely and are not shared with third parties. The system stores your paper temporarily for processing and automatically removes it after a period of time.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0 shadow-sm">
+                                    <h2 class="accordion-header" id="faqFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                            <i class="fas fa-building text-primary me-2"></i>
+                                            Can I use this for commercial purposes?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            The system is provided for research and educational purposes. For commercial use, please contact us to discuss licensing options.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <div class="text-center mt-5">
+                            <a href="/" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-upload me-2"></i>Try It Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Research Papers Classification | Developed by <a href="mailto:tanejanitij4002@gmail.com" class="text-decoration-none">Nitij Taneja</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/about" class="text-decoration-none me-3">About</a>
+                    <a href="/documentation" class="text-decoration-none">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+{% include 'contact_modal.html' %}
+
+</body>
+</html>

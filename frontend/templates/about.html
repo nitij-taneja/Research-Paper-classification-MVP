@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Research Papers Classification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-book-open me-2"></i>Research Papers Classification
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/documentation">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <span class="badge bg-primary px-3 py-2 mb-3">Research Project</span>
+                            <h1 class="display-5 mb-3">About This Project</h1>
+                            <div class="developer-badge mb-3">
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-code me-1"></i> Developed by Nitij Taneja
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h2 class="h4 mb-3 border-start border-primary border-4 ps-3">What is Research Papers Classification?</h2>
+                            <p>
+                                Research Papers Classification is an advanced tool that uses machine learning and natural language processing to evaluate academic papers. The system analyzes research papers to determine their publishability and recommends suitable journals or conferences for submission.
+                            </p>
+                            <p>
+                                This project combines state-of-the-art text processing techniques with sophisticated classification algorithms to provide researchers with valuable insights about their work.
+                            </p>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h2 class="h4 mb-3 border-start border-primary border-4 ps-3">Key Features</h2>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="feature-card p-3 rounded shadow-sm">
+                                        <div class="d-flex">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-file-alt text-primary fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">PDF Processing</h3>
+                                                <p class="text-muted mb-0">Extracts and analyzes text from PDF research papers with high accuracy.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="feature-card p-3 rounded shadow-sm">
+                                        <div class="d-flex">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-brain text-primary fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">ML Classification</h3>
+                                                <p class="text-muted mb-0">Uses advanced machine learning to evaluate paper publishability.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="feature-card p-3 rounded shadow-sm">
+                                        <div class="d-flex">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-chart-bar text-primary fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Detailed Analysis</h3>
+                                                <p class="text-muted mb-0">Provides comprehensive metrics and visualizations of paper quality.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="feature-card p-3 rounded shadow-sm">
+                                        <div class="d-flex">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-journal-whills text-primary fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Journal Recommendations</h3>
+                                                <p class="text-muted mb-0">Suggests appropriate journals or conferences for submission.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h2 class="h4 mb-3 border-start border-primary border-4 ps-3">How It Works</h2>
+                            <div class="process-steps">
+                                <div class="process-step d-flex mb-4">
+                                    <div class="process-number me-3">
+                                        <span class="badge bg-primary rounded-circle p-3">1</span>
+                                    </div>
+                                    <div class="process-content p-3 rounded shadow-sm flex-grow-1">
+                                        <h3 class="h5">Upload Your Paper</h3>
+                                        <p class="mb-0">Upload your research paper in PDF format through our user-friendly interface.</p>
+                                    </div>
+                                </div>
+                                <div class="process-step d-flex mb-4">
+                                    <div class="process-number me-3">
+                                        <span class="badge bg-primary rounded-circle p-3">2</span>
+                                    </div>
+                                    <div class="process-content p-3 rounded shadow-sm flex-grow-1">
+                                        <h3 class="h5">Automated Analysis</h3>
+                                        <p class="mb-0">Our system extracts text, identifies sections, and analyzes content using NLP techniques.</p>
+                                    </div>
+                                </div>
+                                <div class="process-step d-flex mb-4">
+                                    <div class="process-number me-3">
+                                        <span class="badge bg-primary rounded-circle p-3">3</span>
+                                    </div>
+                                    <div class="process-content p-3 rounded shadow-sm flex-grow-1">
+                                        <h3 class="h5">Classification</h3>
+                                        <p class="mb-0">Machine learning models evaluate your paper against a database of published and unpublished works.</p>
+                                    </div>
+                                </div>
+                                <div class="process-step d-flex">
+                                    <div class="process-number me-3">
+                                        <span class="badge bg-primary rounded-circle p-3">4</span>
+                                    </div>
+                                    <div class="process-content p-3 rounded shadow-sm flex-grow-1">
+                                        <h3 class="h5">Results & Recommendations</h3>
+                                        <p class="mb-0">Receive detailed results including publishability assessment and journal recommendations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h2 class="h4 mb-3 border-start border-primary border-4 ps-3">Technology Stack</h2>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fab fa-python fa-3x text-primary mb-3"></i>
+                                            <h3 class="h5">Python Backend</h3>
+                                            <p class="small text-muted mb-0">Flask, Pandas, Scikit-learn, NLTK, SpaCy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fab fa-js fa-3x text-primary mb-3"></i>
+                                            <h3 class="h5">Frontend</h3>
+                                            <p class="small text-muted mb-0">HTML5, CSS3, JavaScript, Bootstrap</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                                            <h3 class="h5">ML Models</h3>
+                                            <p class="small text-muted mb-0">Random Forest, Gradient Boosting, SVM, Sentence Transformers</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h2 class="h4 mb-3 border-start border-primary border-4 ps-3">Global Analysis Visualizations</h2>
+                            <div id="visualizations-section" class="card mb-4">
+                                <div class="card-header bg-light">
+                                    <h4 class="mb-0">Analysis Visualizations</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" id="visualization-container">
+                                        <!-- Visualizations will be dynamically loaded here -->
+                                        <div class="col-12 text-center py-4" id="visualization-loading">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <p class="mt-2">Loading visualizations...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-5">
+                            <a href="/" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-upload me-2"></i>Try It Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Research Papers Classification | Developed by <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+>Nitij Taneja</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/about" class="text-decoration-none me-3">About</a>
+                    <a href="/documentation" class="text-decoration-none">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    {% include 'contact_modal.html' %}
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/visualizations')
+            .then(response => response.json())
+            .then(data => {
+                let html = '';
+                if (Array.isArray(data)) {
+                    data.forEach(viz => {
+                        html += `<div class="col-md-4 mb-4 text-center">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${viz.name}</h5>
+                                            <img src="${viz.path}" alt="${viz.name}" class="img-fluid mb-2" style="max-height:250px; object-fit:contain;">
+                                        </div>
+                                    </div>
+                                </div>`;
+                    });
+                } else {
+                    html = '<div class="alert alert-warning">No visualizations available.</div>';
+                }
+                document.getElementById('visualization-container').innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById('visualization-container').innerHTML = '<div class="alert alert-danger">Failed to load visualizations.</div>';
+            });
+    });
+    </script>
+</body>
+</html>

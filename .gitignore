@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Environments
+venv/
+venvv/
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Data and results
+*.log
+*.csv
+*.tsv
+*.xlsx
+*.h5
+*.db
+*.sqlite3
+*.pkl
+*.joblib
+*.sav
+*.npy
+*.npz
+*.parquet
+*.feather
+*.pdf
+*.docx
+*.pptx
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+
+# Results and generated files
+results/
+
+# Ignore reports and pipeline flow
+PIPELINE_FLOW.md
+final_report.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# License (will be added directly in git)
+LICENSE
