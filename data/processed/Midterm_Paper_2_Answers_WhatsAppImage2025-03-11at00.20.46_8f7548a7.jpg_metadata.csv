@@ -1,0 +1,225 @@
+Paper ID,abstract,introduction,methodology,results,conclusion,abstract_word_count,abstract_readability,abstract_sentiment,abstract_keyword_density,introduction_word_count,introduction_readability,introduction_sentiment,introduction_keyword_density,methodology_word_count,methodology_readability,methodology_sentiment,methodology_keyword_density,results_word_count,results_readability,results_sentiment,results_keyword_density,conclusion_word_count,conclusion_readability,conclusion_sentiment,conclusion_keyword_density,abstract_topic_diversity,section_balance
+Midterm_Paper_2_Answers_WhatsAppImage2025-03-11at00.20.46_8f7548a7.jpg,,,"specific algorithm name might have details I cannot access.)
+(Note:  The specific Bagrodia Algorithm for binary rendezvous was not found in the
+provided PDF materials or standard textbook sections outlined. The following describes
+the general concept of binary rendezvous and a plausible mechanism  which may or
+may not align perfectly with the specific Bagrodia algorithm taught.)
+Binary Rendezvous:  Rendezvous is a synchronization mechanism in message passing
+where both the sender and receiver must be ready to communicate before the message
+transfer occurs. It acts as a synchronization point. In binary rendezvous   only two
+processes are involved: one sender and one receiver.
+The core idea is that the first process to arrive at the communication point (either the
+sender ready to send or the receiver ready to receive) must wait for the other process to
+arrive before the communication (message transfer) can proceed. This ensures tight
+synchronization between the pair.
+General Mechanism (Illustrative  not necessarily Bagrodia's):  A common way to
+implement binary rendezvous involves handshake messages:
+Sender Initiates:
+Process P1 (Sender) wants to send message M to Process P2 (Receiver) via
+rendezvous.
+P1 sends a READY_TO_SEND(M)  message to P2.
+P1 blocks  waiting for an acknowledgment from P2.
+Receiver Arrives:
+When P2 is ready to receive  it checks if a READY_TO_SEND  message has
+arrived from P1.
+If yes: P2 accepts the message M  performs the receive operation  and sends
+an ACK_RECEIVE  back to P1.
+If no: P2 blocks  waiting for the READY_TO_SEND  message.
+Completion:
+When P1 receives the ACK_RECEIVE  from P2  it knows the rendezvous is
+complete and the message has been transferred. P1 unblocks and continues
+execution.1.
+P2  having received the message  also continues execution.
+(Alternative: Receiver Initiates)  A similar handshake can occur if the receiver reaches the
+receive point first  sending a READY_TO_RECEIVE  message and waiting for the sender.
+Diagram (Conceptual Handshake):
+Case 1: Sender arrives first
+Time ->
+P1(Sender ):---READY_TO_SEND (M)-->|(Blocks )
+| |
+| |<--ACK_RECEIVE ---
+| | |
+P2(Receiver ):-------------- (Ready toReceive )-------------> (Receives M Unblocks P1)
+Case 2: Receiver arrives first
+P1(Sender ):-------------- (Ready toSend )-------------> (Sends M Unblocks P2)
+|<--READY_TO_RECEIVE ---
+P2(Receiver ):---READY_TO_RECEIVE -->|(Blocks )
+Key Aspects:  * Synchronization:  Ensures both sender and receiver are ready before
+transfer. * Blocking:  The first process to arrive typically blocks. * Atomicity:  The
+message transfer and synchronization appear as a single atomic event to the
+participating processes.
+Without the specific details of the Bagrodia algorithm  this general explanation covers
+the core principles of binary rendezvous.
+Question 5: How distributed mutual exclusion can be
+implemented? Detail with system model. (10 Marks)
+Concept:  Distributed Mutual Exclusion (DME) Implementation Approaches  System
+Model.
+Syllabus Relevance:  Module 3 (Distributed mutual exclusion algorithms  System
+model).
+Answer:◦
+(This question is identical to Question 5 from Midterm Paper 1. Please refer to the
+detailed answer provided for Midterm Paper 1  Question 5  which covers the system
+model and the three basic approaches: Non-Token-Based (Permission-Based)  Token-
+Based  and Quorum-Based  with examples like Lamport  Ricart-Agrawala  Suzuki-
+Kasami  and Maekawa  along with conceptual diagrams.)
+[Content from Midterm Paper 1  Question 5 Answer would be inserted here]
+Summary of the three approaches:  1. Non-Token-Based:  Request permission from
+others (e.g.  all others)  use timestamps for ordering (Lamport  Ricart-Agrawala). 2.
+Token-Based:  Circulate a unique token; only the holder enters CS (Suzuki-Kasami 
+Raymond's Tree). 3. Quorum-Based:  Request permission from a subset (quorum) with
+intersection property (Maekawa).
+Each approach requires specific assumptions about the system model (process
+behavior  network reliability  message ordering  synchrony) and offers different
+performance and fault-tolerance characteristics.
+Concept: Flynn's Taxonomy for Parallel Computer Architectures.
+Syllabus Relevance: Module 1 (Introduction  Relation to parallel systems).
+1. SISD (Single Instruction stream  Single Data stream):
+◦ Description: This represents the traditional von Neumann architecture. There
+◦ Characteristics: No parallelism in instruction or data streams. This is the
+◦ Example: Older personal computers  mainframes executing sequential
+◦ Diagram:
+2. SIMD (Single Instruction stream  Multiple Data streams):
+◦ Description: A single instruction is executed simultaneously by multiple
+processing units  each operating on a different data stream. A control unit
+◦ Characteristics: Achieves data-level parallelism. Suitable for problems
+◦ Example: Vector supercomputers (e.g.  Cray-1)  array processors  modern
+◦ Diagram: +-----------------+ +-----+-----+-----+ +-----+-----+-----+ | Instruction Pool|
+3. MISD (Multiple Instruction streams  Single Data stream):
+◦ Description: Multiple instructions operate simultaneously on the same data
+◦ Characteristics: This model is rarely implemented in practice. Some argue
+◦ Example: No common commercial examples. Sometimes cited in the context
+◦ Diagram: +-----+-----+-----+ +-----+-----+-----+ +-----------------+ | IS1 | IS2 | ... | --->
+4. MIMD (Multiple Instruction streams  Multiple Data streams):
+◦ Description: Multiple processing units execute different instruction streams
+◦ Characteristics: Achieves both task-level and data-level parallelism.
+◦ Subcategories:
+▪ Shared Memory MIMD: Processors share a common address space
+▪ Distributed Memory MIMD: Each processor has its own private
+Systems fall under this category.
+◦ Example: Multi-core CPUs  clusters of workstations  supercomputers like IBM
+◦ Diagram: +-----+-----+-----+ +-----+-----+-----+ +-----+-----+-----+ | IS1 | IS2 | ... | ---
+Concept: Consistent Global State (Consistent Cut)  Happened-Before Relation.
+Syllabus Relevance: Module 1 (Global state  Cuts)  Module 2 (Snapshot algorithms).
+consistent if it does not contain the receive event of any message without also
+cross the cut line starting from after the cut (the future) and ending before the cut (the
+1. Message from P1 to P2 (sent e1^1  received e2^1): Both send and receive events
+2. Message from P1 to P3 (sent e1^2  received e3^1): Both send and receive events
+3. Message from P2 to P1 (sent e2^2  received e1^3): Both send and receive events
+are before or at the cut X. OK.
+4. Message from P2 to P3 (sent e2^3  received e3^3): The send event (e2^3) is
+(e3^3) occurs after the cut on P3 (which cuts after e3^2). This message crosses the
+5. Message from P3 to P1 (sent e3^2  received e1^4): The send event (e3^2) is
+(e1^4) occurs after the cut on P1 (which cuts after e1^3). This message crosses the
+6. Message from P3 to P2 (sent e3^1  received e2^2): Both send and receive events
+Justification: The cut X is consistent because it adheres to the definition of a consistent
+cut. For every message  m whose receive event Receive(m)  is included in the global
+state represented by the cut  the corresponding send event Send(m) is also included in
+Concept: Concurrency in Asynchronous Executions  Happened-Before Relation.
+for concurrent set or similar.)
+Syllabus Relevance: Module 1 (Asynchronous executions  Global state)  Module 2
+In an asynchronous execution  two events a and  b are considered concurrent
+if  ¬(a -> b)  and  ¬(b -> a)   where ->  represents the Lamport happened-before relation.
+The happened-before relation (-> ) is defined as the smallest relation satisfying: 1. If a
+and  b are events in the same process and a comes before b  then  a -> b . 2. If  a is the
+sending of a message  m and  b is the reception of m  then  a -> b . 3. If  a -> c  and  c ->
+b  then  a -> b  (transitivity).
+• s1 and s2: Are they concurrent? s1 does not happen before s2 (no path). s2 does
+• s1 and r2: s1 -> r1 -> r2. So  s1 happens before r2. Not concurrent.
+• s1 and r3: s1 -> r1 -> r3 (or s1 -> s3 -> r3). So  s1 happens before r3. Not concurrent.
+• s2 and s1: (Same as s1 and s2). Yes  s2 || s1.
+• s2 and s3: Are they concurrent? s2 does not happen before s3 (no path). s3 does
+• s2 and r1: Are they concurrent? s2 does not happen before r1 (no path). r1 does not
+• s2 and r3: s2 -> r2 -> r3. So  s2 happens before r3. Not concurrent.
+• s3 and s1: s1 -> s3. Not concurrent.
+• s3 and s2: (Same as s2 and s3). Yes  s3 || s2.
+• s3 and r1: Are they concurrent? s3 does not happen before r1 (no path). r1 does not
+• s3 and r2: Are they concurrent? s3 does not happen before r2 (no path). r2 does not
+• r1 and s2: (Same as s2 and r1). Yes  r1 || s2.
+• r1 and s3: (Same as s3 and r1). Yes  r1 || s3.
+• r2 and s1: s1 -> r1 -> r2. Not concurrent.
+• r2 and s3: (Same as s3 and r2). Yes  r2 || s3.
+Identifying a Crown (Set of Mutually Concurrent Events): If
+diagram is {s2  s3  r1}.
+Reason: Events s2  s3  and r1 are mutually concurrent because: * s2 || s3 (neither s2 -> s3
+Concept: Bagrodia Algorithm  Rendezvous Synchronization.
+Syllabus Relevance: Module 1 (Primitives for distributed communication  Synchronous
+binary rendezvous. This algorithm might be from a specific lecture slide (like the
+(Note: The specific Bagrodia Algorithm for binary rendezvous was not found in the
+Binary Rendezvous: Rendezvous is a synchronization mechanism in message passing
+transfer occurs. It acts as a synchronization point. In binary rendezvous  only two
+General Mechanism (Illustrative  not necessarily Bagrodia's): A common way to
+1. Sender Initiates:
+◦ Process P1 (Sender) wants to send message M to Process P2 (Receiver) via
+◦ P1 sends a  READY_TO_SEND(M) message to P2.
+◦ P1 blocks  waiting for an acknowledgment from P2.
+2. Receiver Arrives:
+◦ When P2 is ready to receive  it checks if a READY_TO_SEND message has
+◦ If yes: P2 accepts the message M  performs the receive operation  and sends
+an  ACK_RECEIVE back to P1.
+◦ If no: P2 blocks  waiting for the READY_TO_SEND message.
+3. Completion:
+◦ When P1 receives the ACK_RECEIVE from P2  it knows the rendezvous is
+execution.
+◦ P2  having received the message  also continues execution.
+(Alternative: Receiver Initiates) A similar handshake can occur if the receiver reaches the
+receive point first  sending a READY_TO_RECEIVE message and waiting for the sender.
+P1 (Sender): ---READY_TO_SEND(M)--> | (Blocks)
+| |<--ACK_RECEIVE---
+P2 (Receiver): --------------(Ready to Receive)-------------> (Receives M  Unblocks P1)
+P1 (Sender): --------------(Ready to Send)-------------> (Sends M  Unblocks P2)
+|<--READY_TO_RECEIVE---
+P2 (Receiver): ---READY_TO_RECEIVE--> | (Blocks)
+Key Aspects: * Synchronization: Ensures both sender and receiver are ready before
+transfer. * Blocking: The first process to arrive typically blocks. * Atomicity: The
+Concept: Distributed Mutual Exclusion (DME) Implementation Approaches  System
+Syllabus Relevance: Module 3 (Distributed mutual exclusion algorithms  System
+Summary of the three approaches: 1. Non-Token-Based: Request permission from
+Token-Based: Circulate a unique token; only the holder enters CS (Suzuki-Kasami 
+Raymond's Tree). 3. Quorum-Based: Request permission from a subset (quorum) with
+(WhatsAppImage2025-03-11at00.20.46_8f7548
+Description: This represents the traditional von Neumann architecture. There
+Characteristics: No parallelism in instruction or data streams. This is the
+Example: Older personal computers  mainframes executing sequential
+Description: A single instruction is executed simultaneously by multiple
+Characteristics: Achieves data-level parallelism. Suitable for problems
+Example: Vector supercomputers (e.g.  Cray-1)  array processors  modern
+Description: Multiple instructions operate simultaneously on the same data
+Characteristics: This model is rarely implemented in practice. Some argue
+Example: No common commercial examples. Sometimes cited in the context
+Description: Multiple processing units execute different instruction streams
+Characteristics: Achieves both task-level and data-level parallelism.
+Shared Memory MIMD: Processors share a common address space
+Distributed Memory MIMD: Each processor has its own private
+Example: Multi-core CPUs  clusters of workstations  supercomputers like IBM
+Message from P1 to P2 (sent e1^1  received e2^1): Both send and receive events
+Message from P1 to P3 (sent e1^2  received e3^1): Both send and receive events
+Message from P2 to P1 (sent e2^2  received e1^3): Both send and receive events
+Message from P2 to P3 (sent e2^3  received e3^3): The send event (e2^3) is
+Message from P3 to P1 (sent e3^2  received e1^4): The send event (e3^2) is
+Message from P3 to P2 (sent e3^1  received e2^2): Both send and receive events
+cut. For every message m  whose receive event Receive(m)  is included in the global
+In an asynchronous execution  two events a  and b  are considered concurrent
+if ¬(a -> b)  and ¬(b -> a)   where ->  represents the Lamport happened-before relation.
+The happened-before relation ( -> ) is defined as the smallest relation satisfying: 1. If a
+and b  are events in the same process and a  comes before b   then a -> b . 2. If a  is the
+sending of a message m  and b  is the reception of m   then a -> b . 3. If a -> c  and c ->
+b   then a -> b  (transitivity).
+s1 and s2: Are they concurrent? s1 does not happen before s2 (no path). s2 does
+s1 and r2: s1 -> r1 -> r2. So  s1 happens before r2. Not concurrent.
+s1 and r3: s1 -> r1 -> r3 (or s1 -> s3 -> r3). So  s1 happens before r3. Not concurrent.
+s2 and s1: (Same as s1 and s2). Yes  s2 || s1.
+s2 and s3: Are they concurrent? s2 does not happen before s3 (no path). s3 does
+s2 and r1: Are they concurrent? s2 does not happen before r1 (no path). r1 does not
+s2 and r3: s2 -> r2 -> r3. So  s2 happens before r3. Not concurrent.
+s3 and s1: s1 -> s3. Not concurrent.
+s3 and s2: (Same as s2 and s3). Yes  s3 || s2.
+s3 and r1: Are they concurrent? s3 does not happen before r1 (no path). r1 does not
+s3 and r2: Are they concurrent? s3 does not happen before r2 (no path). r2 does not
+r1 and s2: (Same as s2 and r1). Yes  r1 || s2.
+r1 and s3: (Same as s3 and r1). Yes  r1 || s3.
+r2 and s1: s1 -> r1 -> r2. Not concurrent.
+r2 and s3: (Same as s3 and r2). Yes  r2 || s3.
+Process P1 (Sender) wants to send message M  to Process P2 (Receiver) via
+If yes: P2 accepts the message M   performs the receive operation  and sends
+|
+|<--ACK_RECEIVE---",,,0,0,0,0,0,0,0,0,3082,57.57,0.9435,0.0,0,0,0,0,0,0,0,0,0,0

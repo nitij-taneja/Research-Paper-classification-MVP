@@ -1,0 +1,236 @@
+Paper ID,abstract,introduction,methodology,results,conclusion,abstract_word_count,abstract_readability,abstract_sentiment,abstract_keyword_density,introduction_word_count,introduction_readability,introduction_sentiment,introduction_keyword_density,methodology_word_count,methodology_readability,methodology_sentiment,methodology_keyword_density,results_word_count,results_readability,results_sentiment,results_keyword_density,conclusion_word_count,conclusion_readability,conclusion_sentiment,conclusion_keyword_density,abstract_topic_diversity,section_balance
+Midterm_Paper_1_Answers_WhatsAppImage2025-03-11at10.35.07_7532289d.jpg,,,"implementing distributed mutual exclusion with
+system model. (10 Marks)
+Concept:  Distributed Mutual Exclusion (DME) Approaches  System Model.
+Syllabus Relevance:  Module 3 (Distributed mutual exclusion algorithms  System
+model).
+Distributed Mutual Exclusion (DME) ensures that at most one process can access a
+shared resource (Critical Section - CS) at any given time in a distributed system where
+processes communicate only via message passing.
+System Model:  We typically assume a distributed system consisting of N autonomous
+processes (P1  P2  ...  PN) connected by a communication network. Key assumptions
+often include: * Processes:  Processes operate asynchronously at potentially different
+speeds. They can fail (e.g.  crash failures). * Communication:  Processes communicate
+solely by exchanging messages. The network might be assumed to be reliable (messages
+are eventually delivered without corruption) or unreliable. Message delivery might be
+FIFO ordered between pairs of processes or unordered. The system might be
+synchronous (bounded message delays) or asynchronous (unbounded delays). * No
+Shared Memory:  Processes do not share physical memory.
+Basic Approaches for DME:
+Non-Token-Based (Permission-Based) Approach:
+Idea:  A process wishing to enter the CS must request permission from some
+set of other processes and wait until sufficient permissions are granted.
+Timestamps (like Lamport's logical clocks or vector clocks) or sequence
+numbers are typically used to order requests and resolve conflicts fairly.
+Mechanism:  When Pi wants to enter the CS  it sends a REQUEST message
+(often timestamped) to a set of other processes (e.g.  all other processes in
+Lamport's or Ricart-Agrawala's algorithms). A receiving process Pj grants
+permission (sends a REPLY) based on its own state (whether it's in the CS 
+requesting the CS  or idle) and the priority of the requests (e.g.  lower
+timestamp has higher priority). Pi enters the CS only after receiving REPLY
+messages from the required set of processes. Upon exiting the CS  Pi sends
+RELEASE messages or informs deferred requesters.
+Examples:  Lamport's Algorithm  Ricart-Agrawala Algorithm.1.
+Diagram (Conceptual - Ricart-Agrawala):  ``` P1 (Wants CS) --
+REQUEST(ts1)--> P2 P1 (Wants CS) --REQUEST(ts1)--> P3
+P2 (Idle) --REPLY--> P1 P3 (Wants CS  ts3 > ts1) --REPLY--> P1
+P1 (Receives all Replies) --> Enter CS --> Exit CS --> Send deferred Replies ```
+Token-Based Approach:
+Idea:  A unique token exists in the system. Only the process currently holding
+the token is allowed to enter the CS. Mutual exclusion is guaranteed because
+only one process can possess the token at a time.
+Mechanism:  Processes are typically organized in a logical structure (e.g.  a
+ring or a tree). A process wanting to enter the CS requests the token. If it
+doesn't have the token  the request is forwarded along the logical structure
+towards the current token holder. When the token holder exits the CS (or if it
+wasn't using it)  it passes the token to the next requesting process according
+to the algorithm's rules (e.g.  along the ring  down the tree  or directly in
+broadcast-based algorithms).
+Examples:  Suzuki-Kasami's Broadcast Algorithm  Raymond's Tree-Based
+Algorithm.
+Diagram (Conceptual - Ring):  ``` P1 --> P2 --> P3 --> P4 --> P1 (Logical Ring)
+(Token initially at P1)
+P3 (Wants CS) --> Sends Request towards P1 P1 (Exits CS/Idle) --> Sends Token
+--> P2 --> P3 P3 (Receives Token) --> Enter CS --> Exit CS --> Sends Token to
+next requester/neighbor ```
+Quorum-Based Approach:
+Idea:  A process wishing to enter the CS requests permission from only a
+subset of processes  called a quorum (or request set). These quorums are
+carefully constructed such that any two quorums in the system have at least
+one process in common (non-empty intersection property).
+Mechanism:  When Pi wants to enter the CS  it sends REQUEST messages only
+to the processes in its quorum (Ri). A process Pj in Ri grants permission (sends
+REPLY) only if it hasn't granted permission to another process already (it locks
+itself for Pi). Pi enters the CS only after receiving permission from all
+processes in its quorum Ri. The intersection property ensures that no two
+processes can get permission from their respective quorums simultaneously 
+because the common member(s) will grant permission to only one of them at◦
+a time. Upon exiting  Pi sends RELEASE messages to its quorum members 
+allowing them to grant permission to others.
+Example:  Maekawa's Algorithm (uses finite projective planes to construct
+quorums of size approx. sqrt(N)).
+Diagram (Conceptual - Maekawa):  ``` N=7 processes. Quorums Ri  Rj (size
+~sqrt(7) ~ 3). Intersection: Ri ∩ Rj ≠ ∅ (e.g.  Pk is in both)
+P1 (Wants CS) --REQUEST--> Quorum R1 = {P1  P2  P4} P5 (Wants CS) --
+REQUEST--> Quorum R5 = {P2  P5  P6}
+P1 gets REPLY from P1  P4. P5 gets REPLY from P5  P6.
+P2 (Common member) receives requests from P1 and P5. P2 grants
+permission (REPLY) to only one (e.g.  P1 based on timestamp). P2 defers
+REPLY to P5.
+P1 receives all replies --> Enter CS. P5 waits for reply from P2.
+P1 (Exits CS) --RELEASE--> R1 = {P1  P2  P4} P2 (Receives RELEASE from P1) -->
+Sends REPLY to P5. P5 (Receives reply from P2) --> Enter CS. ```
+Each approach has different trade-offs regarding message complexity  synchronization
+delay  fault tolerance  and ease of implementation.◦
+Concept: Synchronous vs. Asynchronous Execution Models in Distributed Systems.
+Syllabus Relevance: Module 1 (Synchronous versus asynchronous executions  Design
+Synchronous Distributed System: A synchronous distributed system is characterized
+Message Delay: There is a known maximum time t_max for any message sent between
+two connected processes to be received. 2. Bounded Execution Steps: The time taken
+Bounded Clock Drift: The rate at which any process's local clock deviates from a perfect
+Diagrammatic Representation (Conceptual): Imagine processes P1  P2  P3 executing in
+rounds. In each round r   a process performs computation  sends messages  and then
+waits for a duration Δt  (calculated based on bounds) before starting round r+1 . All
+messages sent in round r  are guaranteed to arrive before the end of the waiting period
+Δt   allowing processes to start round r+1  with complete information from round r .
+Time ->
+P1: [Round 1 Comp/Send] --Wait Δt--> [Round 2 Comp/Send] --Wait Δt--> ...
+P2: [Round 1 Comp/Send] --Wait Δt--> [Round 2 Comp/Send] --Wait Δt--> ...
+P3: [Round 1 Comp/Send] --Wait Δt--> [Round 2 Comp/Send] --Wait Δt--> ...
+|<------ Round 1 ------->|<------ Round 2 ------->|
+(Messages sent in Round 1 arrive before Round 2 starts)
+Asynchronous Distributed System: An asynchronous distributed system makes no
+Delay: Message transmission delays can be arbitrarily long  though finite (messages are
+permanently). 2. Unbounded Execution Steps: The time taken for a process to execute
+a step is unpredictable. 3. Unbounded Clock Drift: Local clocks can drift at arbitrary
+Diagrammatic Representation (Conceptual): Processes P1  P2  P3 execute
+P1: Event -> Send(m1) -> Event -> ...
+P2: Event -> ... -> Receive(m1) -> Send(m2) -> ...
+P3: Event -> ... -> Receive(m2) -> ...
+(Message delays are arbitrary; no fixed rounds)
+Concept: Consistent Global State (Consistent Cut)  Happened-Before Relation.
+Syllabus Relevance: Module 1 (Global state  Cuts)  Module 2 (Snapshot algorithms).
+execution  is considered consistent if  for every message  m delivered (received) by a
+1. Message m12 (from P1 to P2): Sent by event e1^1 (before e1^3 on P1  so included
+2. Message m13 (from P1 to P3): Sent by event e1^2 (before e1^3 on P1  so included
+3. Message m21 (from P2 to P1): Sent by event e2^1 (before e2^2 on P2  so included
+4. Message m31 (from P3 to P1): Sent by event e3^1 (the last event included on P3
+5. Message m32 (from P3 to P2): Sent by event e3^1 (the last event included on P3
+Crucially  let's re-examine the diagram carefully for any message received before the cut
+whose send event happened after the cut. Looking at the cut defined by {e1^3  e2^2 
+All messages received up to the cut points {e1^3  e2^2  e3^1} were sent before the
+Justification: The global state G1 = { L1(e1^3)  L2(e2^2)  L3(e3^1) } represents a
+consistent cut of the distributed execution. This is because for every event e  included in
+the state (i.e.  e  happened-before or is the cut event itself)  if e  is a receive event
+Receive(m)   then the corresponding send event Send(m) is also included in the state
+(i.e.  Send(m) happened-before the cut event on the sender process). We have verified
+Therefore  the global state G1 is consistent.
+Concept: Causal Order (CO) in Message Delivery.
+Syllabus Relevance: Module 2 (Message ordering paradigms  Causal order (CO)).
+message  m1 happened-before the sending of message  m2   then any process p that
+delivers both messages must deliver m1  before it delivers m2 . The happened-before
+relation (-> ) is defined by Lamport: a -> b if (i) a and b are events in the same process
+• Process P1: Sends m1 (event s1)  then later sends m3 (event s3).
+• Process P2: Sends m2 (event s2).
+• Process P3: Receives m1 (event r1)  then receives m2 (event r2)  then receives m3
+1. Causality between m1 and m3: Event s1 (send m1) happens before s3 (send m3)
+2. Delivery Order at P3: P3 delivers m1 (at r1) and then delivers m3 (at r3). Since s1 ->
+3. Other Potential Causal Chains:
+◦ Is there a causal path from s2 (send m2) to s1 (send m1)? No direct path.
+◦ Is there a causal path from s2 (send m2) to s3 (send m3)? No direct path.
+◦ Is there a causal path from s1 (send m1) to s2 (send m2)? No direct path.
+◦ Is there a causal path from s3 (send m3) to s2 (send m2)? No direct path.
+Messages m1 and m3: We established s1 -> s3. P3 delivers m1 (at r1) before m3 (at r3).
+This respects CO. * Messages m1 and m2: There is no causal relationship (s1 -> s2 or s2 -
+and m3: There is no causal relationship (s2 -> s3 or s3 -> s2) shown between the send
+Justification: The execution obeys Causal Order. The only pair of messages with a
+Concept: Message Ordering Paradigms (FIFO  Causal  Total).
+Syllabus Relevance: Module 2 (Message ordering paradigms).
+1. FIFO Order: This guarantees that messages sent between the same pair of
+◦ Consider the channel P1 -> P3: P1 sends m1 (event s1) and later sends m3
+◦ Consider the channel P2 -> P3: P2 sends only one message  m2. FIFO is
+◦ No other channels have multiple messages in this diagram.
+◦ Therefore  FIFO order is satisfied for all relevant communication channels
+2. Causal Order (CO): As established in the answer to Question 3  if send(m1) ->
+◦ We found that s1 -> s3. P3 delivers m1 (at r1) before m3 (at r3). This respects
+◦ There were no other causal dependencies between send events for messages
+◦ Therefore  Causal Order is satisfied.
+3. Total Order (TO): This guarantees that all processes that deliver a set of messages
+Justification: Message ordering  interpreted as either FIFO or Causal Order  is satisfied
+in the given A-execution diagram. * FIFO: Messages sent from P1 to P3 (m1  then m3) are
+received in the same order (r1  then r3). * Causal: The only causal dependency between
+diagram  we can conclude that message ordering is satisfied.
+Concept: Distributed Mutual Exclusion (DME) Approaches  System Model.
+Syllabus Relevance: Module 3 (Distributed mutual exclusion algorithms  System
+System Model: We typically assume a distributed system consisting of N  autonomous
+often include: * Processes: Processes operate asynchronously at potentially different
+speeds. They can fail (e.g.  crash failures). * Communication: Processes communicate
+Shared Memory: Processes do not share physical memory.
+1. Non-Token-Based (Permission-Based) Approach:
+◦ Idea: A process wishing to enter the CS must request permission from some
+◦ Mechanism: When Pi wants to enter the CS  it sends a REQUEST message
+◦ Examples: Lamport's Algorithm  Ricart-Agrawala Algorithm.
+◦ Diagram (Conceptual - Ricart-Agrawala): ``` P1 (Wants CS) --
+2. Token-Based Approach:
+◦ Idea: A unique token exists in the system. Only the process currently holding
+◦ Mechanism: Processes are typically organized in a logical structure (e.g.  a
+◦ Examples: Suzuki-Kasami's Broadcast Algorithm  Raymond's Tree-Based
+◦ Diagram (Conceptual - Ring): ``` P1 --> P2 --> P3 --> P4 --> P1 (Logical Ring)
+3. Quorum-Based Approach:
+◦ Idea: A process wishing to enter the CS requests permission from only a
+◦ Mechanism: When Pi wants to enter the CS  it sends REQUEST messages only
+because the common member(s) will grant permission to only one of them at
+◦ Example: Maekawa's Algorithm (uses finite projective planes to construct
+◦ Diagram (Conceptual - Maekawa): ``` N=7 processes. Quorums Ri  Rj (size
+delay  fault tolerance  and ease of implementation.
+(WhatsAppImage2025-03-11at10.35.07_753228
+Message Delay: There is a known maximum time t_max  for any message sent between
+Feature
+Synchronous System
+Asynchronous System
+Message Delay
+Bounded
+Unbounded
+Process Speed
+Bounded step time
+Unbounded step time
+Clock Drift
+Failure Detection
+Possible via timeouts
+Impossible via timeouts
+Execution Model
+Lock-step rounds possible
+Independent  event-driven
+Algorithm Design
+Simpler (e.g.  consensus)
+More complex (e.g.  FLP)
+execution  is considered consistent if  for every message m  delivered (received) by a
+process included in the cut  the corresponding send event of m  by the source process is
+Message m12 (from P1 to P2): Sent by event e1^1 (before e1^3 on P1  so included
+Message m13 (from P1 to P3): Sent by event e1^2 (before e1^3 on P1  so included
+Message m21 (from P2 to P1): Sent by event e2^1 (before e2^2 on P2  so included
+Message m31 (from P3 to P1): Sent by event e3^1 (the last event included on P3
+Message m32 (from P3 to P2): Sent by event e3^1 (the last event included on P3
+message m1 happened-before the sending of message m2   then any process p  that
+relation ( -> ) is defined by Lamport: a -> b if (i) a and b are events in the same process
+Process P1: Sends m1 (event s1)  then later sends m3 (event s3).
+Process P2: Sends m2 (event s2).
+Process P3: Receives m1 (event r1)  then receives m2 (event r2)  then receives m3
+Causality between m1 and m3: Event s1 (send m1) happens before s3 (send m3)
+Delivery Order at P3: P3 delivers m1 (at r1) and then delivers m3 (at r3). Since s1 ->
+Is there a causal path from s3 (send m3) to s2 (send m2)? No direct path.
+FIFO Order: This guarantees that messages sent between the same pair of
+Causal Order (CO): As established in the answer to Question 3  if send(m1) ->
+Total Order (TO): This guarantees that all processes that deliver a set of messages
+Idea: A process wishing to enter the CS must request permission from some
+Mechanism: When Pi wants to enter the CS  it sends a REQUEST message
+Examples: Lamport's Algorithm  Ricart-Agrawala Algorithm.
+Diagram (Conceptual - Ricart-Agrawala): ``` P1 (Wants CS) --
+Idea: A unique token exists in the system. Only the process currently holding
+Mechanism: Processes are typically organized in a logical structure (e.g.  a
+Examples: Suzuki-Kasami's Broadcast Algorithm  Raymond's Tree-Based
+Diagram (Conceptual - Ring): ``` P1 --> P2 --> P3 --> P4 --> P1 (Logical Ring)
+Idea: A process wishing to enter the CS requests permission from only a
+Mechanism: When Pi wants to enter the CS  it sends REQUEST messages only
+Example: Maekawa's Algorithm (uses finite projective planes to construct
+Diagram (Conceptual - Maekawa): ``` N=7 processes. Quorums Ri  Rj (size",,,0,0,0,0,0,0,0,0,3279,53.41,-0.9677,0.0,0,0,0,0,0,0,0,0,0,0
