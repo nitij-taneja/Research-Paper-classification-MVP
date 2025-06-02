@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: paper-api
+    env: python
+    buildCommand: python src/classification.py
+    startCommand: python src/app.py
