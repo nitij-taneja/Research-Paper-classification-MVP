@@ -1001,9 +1001,13 @@ def documentation():
     """Render the documentation page."""
     return render_template("documentation.html")
 
+import os
+
 if __name__ == "__main__":
-    # Ensure NLTK data is available before starting the app
     if not sia:
-         logger.warning("NLTK setup incomplete. Sentiment features might be zero.")
-    app.run(host="0.0.0.0", port=10000, debug=True)
+        logger.warning("NLTK setup incomplete. Sentiment features might be zero.")
+    
+    port = int(os.environ.get("PORT", 10000))  # Use Render's port if available
+    app.run(host="0.0.0.0", port=port, debug=False)  # Turn off debug mode for stability
+
 
