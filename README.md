@@ -6,7 +6,7 @@ This project automates the evaluation of research papers for publishability and 
 ![Demo](my_preview.gif)
 **Version:** 2.0
 
-You can request a customized version or have this system built for your own needs. You can even check your own paper at: [[Your Link Here](https://research-paper-classification-mvp.onrender.com)]
+You can request a customized version or have this system built for your own needs. You can even check your own paper at: [[Here](https://research-paper-classification-mvp.onrender.com)]
 
 See how it works in this video: [Demo Video Link]
 
