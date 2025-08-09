@@ -8,7 +8,7 @@ This project automates the evaluation of research papers for publishability and 
 
 You can request a customized version or have this system built for your own needs. You can even check your own paper at: [[Here](https://research-paper-classification-mvp.onrender.com)]
 
-See how it works in this video: [Demo Video Link]
+See how it works in this video: [[Here](https://drive.google.com/file/d/1bvVasGnSLw6zGj14-hLn-y_Jed9EWdud/view?usp=sharing)]
 
 > **Note:** This is an MVP (Minimum Viable Product) version. For customization or to develop this into a full product, please contact me directly.
 
