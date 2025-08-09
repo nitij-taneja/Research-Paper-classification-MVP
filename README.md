@@ -3,7 +3,7 @@
 This project automates the evaluation of research papers for publishability and recommends suitable journals or conferences for submission using machine learning and natural language processing techniques.
 
 ---
-
+![Demo](my_preview.gif)
 **Version:** 2.0
 
 You can request a customized version or have this system built for your own needs. You can even check your own paper at: [Your Link Here]
